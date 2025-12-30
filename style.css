@@ -1,0 +1,889 @@
+/* 기본 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+body{
+  overflow-x: hidden;
+}
+/* 전체 고정 폭 */
+#wrap {
+  width: 1920px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 공통 inner */
+.inner {
+  width: 1220px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+@font-face {
+    font-family: 'ROKAFStrong'; /* 사용할 폰트 이름 정의 */
+    src: url(fonts/ROKAF\ Slab\ Serif\ Medium.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'NanumMyeongjoRegular'; /* 폰트 사용 시 호출할 이름 */
+    src: url('fonts/NanumMyeongjo-Regular.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* ================= 상단 헤더 ================= */
+header {
+  height: 49px;
+  background-color: #665d54;
+  position: relative;
+  z-index: 101;
+}
+
+header .inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+header ul {
+  display: flex;
+  gap: 20px;
+  font: 13px "돋움";
+  color: #fff;
+  margin: 30px;
+}
+
+header .inner a{
+  margin-right: 13px;
+}
+
+header a {
+  color: #fff;
+}
+
+header a:hover {
+  color: #a42020;
+}
+
+/* ================= 네비게이션 ================= */
+nav {
+  height: 50px;
+  background: transparent;
+  position: absolute;
+  top: 49px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo img {
+  height: 50px;
+  display: block;
+}
+
+.menu {
+  display: flex;
+  gap: 80px;
+  margin: 0 auto;
+}
+
+.menu > li {
+  position: relative;
+}
+
+.menu > li > a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  padding: 15px 0;
+}
+
+.menu > li > a:hover {
+  color: #a42020;
+}
+
+/* 서브메뉴 스타일 */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.95);
+  min-width: 150px;
+  padding: 10px 0;
+  display: none;
+  z-index: 1000;
+}
+
+.menu > li:hover .submenu {
+  display: block;
+}
+
+.submenu li {
+  list-style: none;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.3s;
+}
+
+.submenu li a:hover {
+  background: #a42020;
+  color: #fff;
+}
+
+.nav-util {
+  position: absolute;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.nav-util a:hover {
+  color: #a42020;
+}
+
+.search {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ================= 사이드 네비게이션 ================= */
+.side-nav {
+  position: fixed;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  z-index: 100;
+}
+
+.side-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+  padding-right: 0;
+}
+
+/* 수직 라인 */
+.side-nav ul::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15px;
+  bottom: 15px;
+  width: 2px;
+  background: #999;
+}
+
+.side-nav li {
+  position: relative;
+  text-align: right;
+  padding-right: 30px;
+}
+
+/* 점(Dot) */
+.side-nav li::before {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #999;
+  transition: background 0.3s;
+}
+
+/* Active 상태의 점 (빨간색) */
+.side-nav li.active::before {
+  background: #a42020;
+}
+
+.side-nav a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.side-nav a:hover {
+  color: #a42020;
+}
+
+.side-nav li.active a {
+  color: #a42020;
+  font-weight: bold;
+}
+
+/* ================= 메인 히어로 ================= */
+main {
+  height: 900px;
+  position: relative;
+  overflow: hidden;
+}
+
+main h2{
+  font-family: 'ROKAFStrong', sans-serif;
+}
+
+.subtitle{
+  font-family: 'ROKAFStrong', sans-serif;
+}
+.sliderWrap {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 100px 0 80px 0;  /* 상단에 100px, 하단에 80px 여백 추가 */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content h2 {
+  font-size: 80px;      /* 글자 크기를 90px로 설정 */
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 2px;    /* 글자 간격을 2px로 설정 */
+}
+
+.subtitle {
+  font-size: 24px;       /* 서브 제목 글자 크기 22px */
+  line-height: 1.6;
+  margin-bottom: 10px;    /* 설명 텍스트 하단에 60px 여백 추가 */
+}
+
+.description {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 60px;
+}
+
+.bottom-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 1200px;
+  gap: 200px;
+}
+
+.visit-info {
+  position: relative;
+  padding-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.visit-info::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: -150px;
+  height: 3px;
+  background: #fff;
+}
+
+.visit-info p {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.visit-info p:last-child {
+  margin-bottom: 0;
+}
+
+.visit-info strong {
+  display: inline;
+  margin-right: 5px;
+}
+
+.right-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.reserve-btn {
+  display: inline-block;
+  padding: 15px 45px;
+  background: #fff;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;       /* 마우스를 올리면 커서가 포인터로 변경 */
+  white-space: nowrap;
+  margin-top: 50px;        /* 버튼 상단에 40px 여백 추가 */
+}
+
+.reserve-btn:hover {
+  background: #A42020;
+  color: #ccc;
+}
+
+
+/* ================= 특별전시 섹션 ================= */
+section h3{font-family: 'ROKAFStrong', sans-serif;}
+
+.content {
+  height: 900px;
+  background: url("images/content.jpg") no-repeat center/cover;
+  position: relative;
+  padding: 100px 0;
+}
+
+.content h3 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 100px;  /* 제목 아래쪽에 180px의 여백 */
+}
+
+.exhibit {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.exhibit-info-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.exhibit-info {
+  flex: 1;
+}
+
+.exhibit-text {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.exhibit-text.active {
+  display: block;
+  opacity: 1;
+}
+
+.badge {
+  display: inline-block;
+  background: #a42020;
+  color: #fff;
+  padding: 5px 15px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.exhibit-info h4 {
+  font-size: 30px;      /* 전시 제목 글자 크기를 28px로 설정 */
+  margin-bottom: 30px;  /* 전시 제목 아래에 여백 추가 */
+}
+
+.exhibit-info p {
+  font-size: 19px;     /* 전시 설명 글자 크기를 15px로 설정 */
+  line-height: 1.8;    /* 줄 간격을 1.8로 설정 */
+  margin-bottom: 10px; /* 전시 설명 텍스트 아래에 10px 여백 추가 */
+}
+
+.exhibit-imgs {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.exhibit-slider-wrap {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.exhibit-slider {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ================= 일정 + 유물검색 + 관람문의 + 새소식 섹션 ================= */
+.news {
+  background: #8f8270;
+  position: relative;
+  padding: 80px 0;
+  height: 900px;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 400px 700px;
+  gap: 100px 80px;              /* 상 하 컨텐츠 사이 간격 조절 */
+  justify-content: center; /* 전체 가운데 정렬 */
+}
+
+
+
+
+.calendar-wrap h3,   /* 일정,관람문의,새소식 제목 부분 */
+.contact h3,
+.updates h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #fff;
+  position: relative;
+}
+
+.contact h3,
+.updates h3 {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  
+}
+
+.contact h3::after,     /*  플러스 기호 모양 */
+.updates h3::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.calendar {
+  background: #8f8270;
+  padding: 0px;
+}
+
+.month {                  /*   달력 */
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;           /*  /요일 칸 상단 부분 조절/ */
+  padding-bottom: 5px;
+  border-bottom: 2px solid #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.calendar table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar th {
+  padding: 5px;                /* 요일 칸 상단 부분 조절 */
+  padding-bottom: 5px;         /* 요일 칸 상단 부분 조절 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  color: #fff;
+}
+
+.calendar td {
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  position: relative;
+}
+
+.calendar td:not(:empty) {
+  width: 40px;
+  height: 40px;
+}
+
+.calendar td:not(:empty)::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: transparent;
+  z-index: -1;
+}
+
+.calendar td:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.today::before {
+  background: #a42020 !important;
+}
+
+.today {
+  color: #fff;
+  font-weight: bold;
+}
+
+.note {
+  margin-top: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 2px solid #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  color: #fff;
+}
+
+/* ================= 유물 검색 ================= */
+.search-video-box {
+  color: #fff;               /* 유물 검색 영역 전체 글자색을 흰색으로 설정 */
+}
+
+.search-video-box h3 {
+  font-size: 32px;           /* 유물 검색 제목 글자 크기 */
+  margin-bottom: 20px;       /* 제목과 검색창 사이 간격 */
+}
+
+/* ================= 검색창 ================= */
+.search-bar {
+  display: flex;             /* input과 버튼을 가로로 나란히 배치 */
+  background: #fff;          /* 검색창 배경색 (흰색) */
+  margin-bottom: 15px;       /* 검색창과 태그 영역 사이 여백 */
+}
+
+.search-bar input {
+  flex: 1;                   /* 버튼을 제외한 나머지 공간을 모두 차지 */
+  padding: 12px;             /* 입력창 안쪽 여백 */
+  border: none;              /* 기본 테두리 제거 */
+  outline: none;             /* 클릭 시 생기는 파란 외곽선 제거 */
+  font-size: 14px;           /* 입력 텍스트 크기 */
+}
+
+.search-bar button {
+  background: none;          /* 버튼 배경 제거 */
+  border: none;              /* 버튼 테두리 제거 */
+  padding: 0 15px;           /* 버튼 좌우 여백 */
+  cursor: pointer;           /* 마우스 올리면 손가락 모양 */
+  font-size: 18px;           /* 검색 아이콘 크기 */
+  color: #333;               /* 아이콘 색상 */
+}
+
+/* ================= 태그 ================= */
+.tags {
+  display: flex;             /* 태그들을 가로로 배치 */
+  gap: 6px;                  /* 태그 사이 간격 */
+  flex-wrap: wrap;           /* 한 줄이 넘으면 자동 줄바꿈 */
+  margin-bottom: 10px;       /* 태그와 영상 영역 사이 여백 */
+}
+
+.tags span {
+  border: 1px solid rgba(255,255,255,0.4); /* 반투명 흰색 테두리 */
+  border-radius: 20px;       /* 둥근 태그 모양 */
+  padding: 5px 14px;         /* 태그 안쪽 여백 */
+  font-size: 12px;           /* 태그 글자 크기 */
+  color: #fff;               /* 태그 글자 색상 */
+}
+
+/* ================= 영상 썸네일 ================= */
+.video-wrap {
+  position: relative;        /* 재생 아이콘을 absolute로 올리기 위한 기준 */
+  width: 100%;               /* 부모 영역 가로 전체 사용 */
+  height: 240px;             /* 영상 영역 높이 고정 */
+  background: #000;          /* 이미지 로딩 전 배경색 */
+}
+
+.video-wrap img {
+  width: 100%;               /* 이미지 가로 꽉 채우기 */
+  height: 100%;              /* 이미지 세로 꽉 채우기 */
+  object-fit: cover;         /* 이미지 비율 유지하면서 영역 채우기 */
+  opacity: 0.7;              /* 이미지 살짝 어둡게 */
+}
+
+/* ================= 재생 아이콘 ================= */
+.play-icon {
+  position: absolute;        /* video-wrap 기준 위치 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #fff;
+  transition: opacity 0.3s ease; /* 부드러운 전환 */
+}
+
+/* 기본 상태 */
+.play {
+  opacity: 1;                /* 재생 아이콘 보임 */
+}
+
+.pause {
+  opacity: 0;                /* 정지 아이콘 숨김 */
+}
+
+/* 마우스를 영상에 올렸을 때 */
+.video-wrap:hover .play {
+  opacity: 0;                /* 재생 아이콘 숨김 */
+}
+
+.video-wrap:hover .pause {
+  opacity: 1;                /* 정지 아이콘 보임 */
+}
+
+/* ================= 관람문의 스타일 ================= */
+.contact-info {
+  font-size: 15px;           /* 관람문의 기본 글자 크기 */
+  line-height: 2;            /* 텍스트 줄 간격 (가독성 향상) */
+  color: #fff;               /* 글자 색상 */
+}
+
+.contact-info > p:first-child {
+  padding-bottom: 1px;       /* 첫 문단 아래 여백 */
+  margin-bottom: 5px;        /* 첫 문단과 다음 요소 간격 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* 구분선 */
+}
+
+.contact-info p:first-child {
+  margin-top: -15px;         /* 위쪽 여백을 줄여 위 요소와 밀착 */
+}
+
+.contact-info strong {
+  display: block;            /* strong을 블록 요소로 변경 */
+  margin-top: 15px;          /* 위 여백 */
+  margin-bottom: 10px;       /* 아래 여백 */
+}
+
+/* ================= 버튼 그룹 ================= */
+.btn-group {
+  display: flex;             /* 버튼들을 가로로 배치 */
+  gap: 10px;                 /* 버튼 사이 간격 */
+  margin-top: 10px;          /* 위쪽 여백 */
+}
+
+.btn-red {
+  background: #a42020;       /* 빨간색 배경 */
+  color: #fff;               /* 글자 색상 */
+  padding: 10px 25px;        /* 버튼 안쪽 여백 */
+  border: none;              /* 테두리 제거 */
+  cursor: pointer;           /* 클릭 가능 표시 */
+}
+
+.btn-outline {
+  background: #fff;          /* 흰색 배경 */
+  color: #333;               /* 글자 색상 */
+  padding: 12px 25px;        /* 버튼 안쪽 여백 */
+  border: 1px solid #333;    /* 테두리 */
+  cursor: pointer;           /* 클릭 가능 표시 */
+}
+
+
+/* 새소식 스타일 */
+.updates ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;          /*  새소식 본문 내용 행간 조절 */
+}
+
+.updates li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 16px;         /*  새소식 본문 내용 글자 크기 조절 */
+  color: #fff;
+}
+
+.updates li:hover {
+  color: #a42020;
+  cursor: pointer;
+}
+
+.date {
+  color: #ddd;
+  white-space: nowrap;
+  margin-left: 20px;
+}
+
+/* ================= 슬로건 섹션 ================= */
+.S1{font-family: 'NanumMyeongjoRegular' ;
+
+}
+
+  .inner h3{font-family: 'ROKAFStrong';
+}
+.slogan {
+  height: 400px;
+  background: url("images/slogan1.jpg") no-repeat center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.slogan .inner {
+  text-align: center;
+  position: relative;
+}
+
+.slogan-logo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 50px;
+}
+
+.slogan h2 {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 2;     /* 줄 간격 */
+  margin-top: 100px; /*  위쪽 여백 조절 */
+}
+
+.slogan p {
+  font-size: 24px;    /* 설명 문구 글자 크기 */
+  margin-top: 20px;
+  line-height: 1.8;    /* 문단 가독성을 위한 줄 간격 */
+}
+
+/* ================= 푸터 ================= */
+
+footer {
+  height: 195px;                     /* 푸터 전체 높이 */
+  background: #a42020;               /* 배경색 */
+  color: #fff;                       /* 기본 글자색 */
+  padding: 50px 0;                   /* 상하 여백 */
+}
+
+/* 푸터 내부 좌우 배치 */
+.footer-content {
+  display: flex;                     /* 좌우 정렬 */
+  justify-content: space-between;    /* 양쪽 끝 배치 */
+  align-items: flex-start;           /* 위쪽 기준 정렬 */
+}
+
+/* 푸터 상단 링크 */
+.footer-links {
+  display: flex;                     /* 가로 배치 */
+  gap: 20px;                         /* 링크 간격 */
+  margin-bottom: 20px;               /* 아래 여백 */
+  font-size: 14px;                   /* 글자 크기 */
+}
+
+.footer-links a:hover {
+  text-decoration: underline;        /* 호버 시 밑줄 */
+}
+
+footer .footer-links a{
+  margin-right: 15px;
+}
+
+/* 주소 / 정보 텍스트 */
+.footer-info {
+  font-size: 12px;                   /* 작은 글자 */
+  line-height: 1.8;                  /* 줄 간격 */
+}
+
+/* 박물관 한글 로고 */
+.footer-logo {
+  font-size: 24px;                   /* 로고 글자 크기 */
+  font-weight: bold;                 /* 굵게 */
+  margin-bottom: 5px;                /* 아래 여백 */
+}
+
+/* 박물관 영문명 */
+.footer-logo-en {
+  font-size: 14px;                   /* 영문 로고 크기 */
+  font-weight: normal;               /* 기본 굵기 */
+  margin-bottom: 15px;               /* 아이콘과 간격 */
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 🔥 가운데 정렬 */
+  margin-right: 20px;
+}
+
+/* ================= SNS 아이콘 ================= */
+.sns-icons {
+  display: flex;                     /* 아이콘 가로 배치 */
+  gap: 10px;                         /* 🔥 아이콘 사이 간격 */
+  text-align: center;               /* 세로 중앙 정렬 */
+}
+
+/* 아이콘 버튼 */
+.sns-icons a {
+  display: flex;                     /* 아이콘 중앙 배치 */
+  align-items: center;               /* 세로 중앙 */
+  justify-content: center;           /* 가로 중앙 */
+  width: 25px;                       /* 🔥 원 크기 */
+  height: 25px;
+  background: #fff;                  /* 원 배경색 */
+  border-radius: 50%;                /* 원형 */
+  color: #a42020;                    /* 아이콘 색상 */
+  font-size: 15px;                   /* 🔥 아이콘 크기 */
+  transition: all 0.3s ease;         /* 부드러운 효과 */
+}
+
+/* 아이콘 호버 효과 */
+.sns-icons a:hover {
+  background: #8f1616;               /* 호버 시 배경색 */
+  color: #fff;                       /* 호버 시 아이콘 색 */
+  transform: translateY(-3px);       /* 살짝 위로 이동 */
+}
+

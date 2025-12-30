@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>충주박물관</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<style>
+  /* 기본 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+body{
+  overflow-x: hidden;
+}
+/* 전체 고정 폭 */
+#wrap {
+  width: 1920px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 공통 inner */
+.inner {
+  width: 1220px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* ================= 상단 헤더 ================= */
+header {
+  height: 49px;
+  background-color: #665d54;
+  position: relative;
+  z-index: 101;
+}
+
+header .inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+header ul {
+  display: flex;
+  gap: 20px;
+  font: 13px "돋움";
+  color: #fff;
+  margin: 30px;
+}
+
+header .inner a{
+  margin-right: 13px;
+}
+
+header a {
+  color: #fff;
+}
+
+header a:hover {
+  color: #a42020;
+}
+
+/* ================= 네비게이션 ================= */
+nav {
+  height: 50px;
+  background: transparent;
+  position: absolute;
+  top: 49px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo img {
+  height: 50px;
+  display: block;
+}
+
+.menu {
+  display: flex;
+  gap: 80px;
+  margin: 0 auto;
+}
+
+.menu > li {
+  position: relative;
+}
+
+.menu > li > a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  padding: 15px 0;
+}
+
+.menu > li > a:hover {
+  color: #a42020;
+}
+
+/* 서브메뉴 스타일 */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.95);
+  min-width: 150px;
+  padding: 10px 0;
+  display: none;
+  z-index: 1000;
+}
+
+.menu > li:hover .submenu {
+  display: block;
+}
+
+.submenu li {
+  list-style: none;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.3s;
+}
+
+.submenu li a:hover {
+  background: #a42020;
+  color: #fff;
+}
+
+.nav-util {
+  position: absolute;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.nav-util a:hover {
+  color: #a42020;
+}
+
+.search {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+/* ================= 메인 히어로 ================= */
+main {
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+.sliderWrap {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+
+
+
+/* ================= 푸터 ================= */
+
+footer {
+  height: 195px;                     /* 푸터 전체 높이 */
+  background: #a42020;               /* 배경색 */
+  color: #fff;                       /* 기본 글자색 */
+  padding: 50px 0;                   /* 상하 여백 */
+}
+
+/* 푸터 내부 좌우 배치 */
+.footer-content {
+  display: flex;                     /* 좌우 정렬 */
+  justify-content: space-between;    /* 양쪽 끝 배치 */
+  align-items: flex-start;           /* 위쪽 기준 정렬 */
+}
+
+/* 푸터 상단 링크 */
+.footer-links {
+  display: flex;                     /* 가로 배치 */
+  gap: 20px;                         /* 링크 간격 */
+  margin-bottom: 20px;               /* 아래 여백 */
+  font-size: 14px;                   /* 글자 크기 */
+}
+
+.footer-links a:hover {
+  text-decoration: underline;        /* 호버 시 밑줄 */
+}
+
+footer .footer-links a{
+  margin-right: 15px;
+}
+
+/* 주소 / 정보 텍스트 */
+.footer-info {
+  font-size: 12px;                   /* 작은 글자 */
+  line-height: 1.8;                  /* 줄 간격 */
+}
+
+/* 박물관 한글 로고 */
+.footer-logo {
+  font-size: 24px;                   /* 로고 글자 크기 */
+  font-weight: bold;                 /* 굵게 */
+  margin-bottom: 5px;                /* 아래 여백 */
+}
+
+/* 박물관 영문명 */
+.footer-logo-en {
+  font-size: 14px;                   /* 영문 로고 크기 */
+  font-weight: normal;               /* 기본 굵기 */
+  margin-bottom: 15px;               /* 아이콘과 간격 */
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 🔥 가운데 정렬 */
+  margin-right: 20px;
+}
+
+/* ================= SNS 아이콘 ================= */
+.sns-icons {
+  display: flex;                     /* 아이콘 가로 배치 */
+  gap: 10px;                         /* 🔥 아이콘 사이 간격 */
+  text-align: center;               /* 세로 중앙 정렬 */
+}
+
+/* 아이콘 버튼 */
+.sns-icons a {
+  display: flex;                     /* 아이콘 중앙 배치 */
+  align-items: center;               /* 세로 중앙 */
+  justify-content: center;           /* 가로 중앙 */
+  width: 25px;                       /* 🔥 원 크기 */
+  height: 25px;
+  background: #fff;                  /* 원 배경색 */
+  border-radius: 50%;                /* 원형 */
+  color: #a42020;                    /* 아이콘 색상 */
+  font-size: 15px;                   /* 🔥 아이콘 크기 */
+  transition: all 0.3s ease;         /* 부드러운 효과 */
+}
+
+/* 아이콘 호버 효과 */
+.sns-icons a:hover {
+  background: #8f1616;               /* 호버 시 배경색 */
+  color: #fff;                       /* 호버 시 아이콘 색 */
+  transform: translateY(-3px);       /* 살짝 위로 이동 */
+}
+
+
+.a0{
+  width: 1920px;
+  height: 900px;
+}
+.a1{
+  width: 1920px;
+  height: 900px;
+}
+
+.a2{
+  width: 1920px;
+  height: 600px;
+}
+
+.a3{
+  width: 1920px;
+  height: 600px;
+}
+
+
+
+</style>
+
+
+<body>
+  <div id="wrap">
+    <!-- 상단 헤더 -->
+    <header>
+      <div class="inner">
+        <ul>
+          <li><a href="#">홈으로</a>|</li>
+          <li><a href="#">정보공개</a>|</li>
+          <li><a href="#">충주시청 바로가기</a>|</li>
+          <li><a href="#">자료저장소</a>|</li>
+          <li><a href="#">LANGUAGE</a></li>
+        </ul>
+      </div>
+    </header>
+
+<!-- 네비게이션 -->
+      <nav>
+        <div class="inner nav-wrap">
+          <h1 class="logo">
+            <a href="index.html"><img src="images/logo1.png" alt="충주박물관" /></a>
+          </h1>
+
+          <ul class="menu">
+            <li>
+              <a href="index2.html">관람정보</a>
+              <ul class="submenu">
+                <li><a href="index2.html">관람안내</a></li>
+                <li><a href="index2.html">전시해설</a></li>
+                <li><a href="index2.html">시설안내</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="index2.html">전시</a>
+              <ul class="submenu">
+                <li><a href="index2.html">상시전실</a></li>
+                <li><a href="index2.html">특별전시</a></li>
+                <li><a href="index2.html">야외전시</a></li>
+                <li><a href="index2.html">가상체험</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="index2.html">교육·행사</a>
+              <ul class="submenu">
+                <li><a href="index2.html">행사소식</a></li>
+                <li><a href="index2.html">프로그램</a></li>
+                <li><a href="index2.html">문화행사</a></li>
+                <li><a href="index2.html">학술행사</a></li>
+                <li><a href="index2.html">교육자료</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="index2.html">소식·참여</a>
+              <ul class="submenu">
+                <li><a href="index2.html">새소식</a></li>
+                <li><a href="index2.html">채용안내</a></li>
+                <li><a href="index2.html">월간소식</a></li>
+                <li><a href="index2.html">고객민원</a></li>
+                <li><a href="index2.html">설문조사</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="index2.html">자료</a>
+              <ul class="submenu">
+                <li><a href="index2.html">소장유물</a></li>
+                <li><a href="index2.html">사진자료</a></li>
+                <li><a href="index2.html">발간자료</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="index2.html">박물관 안내</a>
+              <ul class="submenu">
+                <li><a href="index2.html">인사말</a></li>
+                <li><a href="index2.html">박물관소개</a></li>
+                <li><a href="index2.html">오시는길</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="nav-util">
+            <a href="#">로그인</a>
+            <span class="search">⌕</span>
+          </div>
+        </div>
+      </nav>
+
+    <!-- 메인 히어로 섹션 -->
+    <main id="home">
+      <div class="sliderWrap">
+        <img src="images2/img0.jpg" alt="배경1" class="slider" />
+      </div>
+    </main>
+
+<div class="a0">
+      <img src="images2/img1.jpg" alt="인사말 ">
+</div>
+
+<div class="a1">
+      <img src="images2/img2.jpg" alt="연혁">
+</div>
+
+<div class="a2">
+      <img src="images2/img3.jpg" alt="오시는길">
+</div>
+
+<div class="a3">
+      <img src="images2/img4.jpg" alt="소개">
+</div>
+
+    <!-- 푸터 -->
+    <footer>
+      <div class="inner">
+        <div class="footer-content">
+          <div>
+            <ul class="footer-links">
+              <li><a href="#">찾아오시는길</a>|</li>
+              <li><a href="#">조직및업무</a>|</li>
+              <li><a href="#">청사 안내</a>|</li>
+              <li><a href="#">개인정보처리방침</a>|</li>
+              <li><a href="#">뷰어다운로드</a></li>
+            </ul>
+            <div class="footer-info">
+              <p>
+                충주박물관 : (우27447) 충청북도 충주시 중앙탑면 중앙탑길 112-28
+                | 조동리선사유적박물관
+              </p>
+              <p>
+                전화번호 : (안내실) 043-850-3924 (관리팀) 043-3921 ~ 23 (학예연구팀) 043-850-3925-2
+              </p>
+              <p>Copyright (c) 2017 Chungju city. All rights reserved.</p>
+            </div>
+          </div>
+          <div>
+            <div class="footer-brand">
+              <div class="footer-logo">충주 박물관</div>
+              <p class="footer-logo-en">C h u n g j u M u s e u m</p>
+
+              <div class="sns-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>
